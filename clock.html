@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ja">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>時計</title>
+        <style>
+            body {
+                background-color: #f0f0f0;
+                }
+            </style>
+        </head>
+    <body>
+        <h1 id="realtime">realtime</h1>
+        <script src="https://cdn.jsdelivr.net/npm/p5@2.3.3/lib/p5.min.js"></script><script>
+function setup() {
+  createCanvas(800, 360);
+}
+function draw() {
+  background(0);
+  let date = new Date();
+  SecondHeight = date.getSeconds() * 6;
+  MinutesHeight = date.getMinutes() * 6;
+  HoursHeight = date.getHours() * 15;
+  DayHeight = date.getDate() * 11.6129032;
+  MonthHeight = date.getMonth() * 30;
+  fill("yellow");
+  circle(50, SecondHeight, 100);
+  circle(150, MinutesHeight, 100);
+  circle(250, HoursHeight, 100);
+  circle(350, DayHeight, 100);
+  circle(450, MonthHeight, 100);
+  var realtimerewrite = document.getElementById("realtime");
+  realtimerewrite.innerHTML = date;
+}
+</script>
+        </body>
